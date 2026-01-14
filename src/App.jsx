@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import "./App.css";
 
-const socket = io.connect("https://chat-app-backend-xapn.onrender.com");
+const socket = io.connect("https://chat-app-backend-xapn.onrender.com", {
+  transports: ['websocket', 'polling']
+});
+
 
 function App() {
   const [userTyping, setUserTyping] = useState(false);
