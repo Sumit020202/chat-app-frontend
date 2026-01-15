@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import "./App.css";
 
-const socket = io.connect("https://chat-app-backend-yy43.onrender.com");
+const socket = io.connect("https://chat-app-backend-xapn.onrender.com");
 
 function App() {
   const [userTyping, setUserTyping] = useState(false);
@@ -14,7 +14,7 @@ function App() {
   const joinRoom = async () => {
     if (room !== "") {
       socket.emit("join_room", room);
-      const response = await fetch(`https://chat-app-backend-yy43.onrender.com/messages/${room}`);
+      const response = await fetch(`https://chat-app-backend-xapn.onrender.com/messages/${room}`);
       const data = await response.json();
       setMessageList(data);
       alert(`आप रूम ${room} में जुड़ चुके हैं और पिछले मैसेज लोड हो गए हैं!`);
