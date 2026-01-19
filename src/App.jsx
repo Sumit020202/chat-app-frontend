@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import "./App.css";
 
 // Socket Connection (HTTPS पक्का करें)
-const socket = io.connect("https://chat-app-backend-xapn.onrender.com", {
+const socket = io.connect("https://chat-app-backend-xeci.onrender.com", {
   transports: ['websocket', 'polling'],
   withCredentials: true
 });
@@ -24,7 +24,7 @@ function App() {
     if (room !== "") {
       socket.emit("join_room", room);
       try {
-        const response = await fetch(`https://chat-app-backend-xapn.onrender.com/messages/${room}`);
+        const response = await fetch(`https://chat-app-backend-xeci.onrender.com/messages/${room}`);
         const data = await response.json();
         if (Array.isArray(data)) {
           setMessageList(data);
